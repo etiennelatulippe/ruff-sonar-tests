@@ -1,0 +1,11 @@
+{
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "python",
+  "workspaceFolder": "/workspace",
+  "overrideCommand": true,
+  "containerEnv": {
+    "SONAR_HOST_URL":"http://sonarqube:9000", 
+    "SONAR_TOKEN":""
+  },
+  "postStartCommand": "pip install -r requirements.txt"
+}

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  python:
+    image: mcr.microsoft.com/vscode/devcontainers/python:3
+    volumes:
+      - ..:/workspace
+    working_dir: /workspace
+    command: python3
+  sonarqube:
+    image: sonarqube:latest
+    ports:
+      - "9000:9000"
+    environment:
+      - SONARQUBE_JDBC_URL=jdbc:postgresql://postgresql:5432/test
+      - SONARQUBE_JDBC_USERNAME=user
+      - SONARQUBE_JDBC_PASSWORD=passwd
+  postgresql:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: test
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: passwd
+    ports:
+      - "5432:5432"      

@@ -1,0 +1,10 @@
+[tool.ruff.lint]
+select = ["C901"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 5
+
+[tool.sonar]
+projectKey="my:project"
+projectName="rufftest"
+sources="./src/"
